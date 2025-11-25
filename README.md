@@ -1,29 +1,40 @@
-# Pure-python-realizations-of-deep-learning-networks
-In this repository, I will display some realizations of deep learning frameworks: MLP, CNN, RNN, hopfield with pure python, which may offer an advantage for the readers to better understand the mechanisms hidden in the learning process (compared with other frameworks like pytorch.)
-## Commonly-used datasets
-In order to keep the relative consistence among all the network architectures, I introduce three commonly-used datasets: MNIST dataset, Fashion-MNIST dataset and CIFAR-10 dataset, which will be utilized in training the following networks. Typically, these datasets are used to implement classification tasks.
+# From-Scratch Deep Learning Models for Image Classification
 
-[MNIST](http://yann.lecun.com/exdb/mnist/) dataset, four ingredents are included: 60000 pictures and corresponding labels in training set, 10000 pictures and corresponding labels in testing set. The range of pixels is often scaled between (0,1). Please first download this dataset, and then load this using [load_MNIST](https://github.com/Chan-Li/Pure-python-realizations-of-deep-learning-networks/blob/main/Datasets/load_MNIST). 
+This repository contains a collection of from-scratch implementations of common deep learning architectures — including MLPs, CNNs, RNNs, and Hopfield-type networks — written in pure Python.  
+The goal is to build a transparent, minimal framework that helps illustrate how learning, optimization, and feature extraction occur inside neural networks without relying on external libraries such as PyTorch or TensorFlow.
+
+Although simple by design, these implementations demonstrate the core components needed in real computer vision workflows, such as dataset loading, preprocessing, training loops, gradient-based optimization, and evaluation.
+
+---
+
+## ✨ What This Repository Demonstrates
+- End-to-end **image classification pipelines** implemented from scratch  
+- Manual construction of:
+  - forward and backward passes  
+  - activation functions  
+  - loss computation  
+  - parameter updates (SGD/variants)  
+- Implementation of classic CNN architectures (e.g., LeNet) for vision tasks  
+- Training on widely used benchmark datasets (MNIST, CIFAR-10)  
+- Clear exposure of underlying learning dynamics, model behavior, and limitations  
+
+These components form the foundation of more advanced deep learning models used in industrial inspection, anomaly detection, and scientific imaging.
+
+---
+
+## 📦 Datasets
+
+This repository includes loaders for several standard computer vision datasets used in classification tasks:
+
+### **MNIST**
+Handwritten-digit dataset (60k train / 10k test).  
+Used to test MLP and small CNN architectures.
+
+Loading example:
 ```python
 from Datasets import load_MNIST as load2
-mnist=(load2.load_mnist(one_hot=True))
+mnist = load2.load_mnist(one_hot=True)
 train_data = mnist[0][0][0:60000].T
 train_label = mnist[0][1][0:60000].T
-test_data = mnist[1][0][0:10000].T
+test_data  = mnist[1][0][0:10000].T
 test_label = mnist[1][1][0:10000].T
-print(np.shape(train_data))
-print(np.shape(train_label))
-```
-
-[CIFAR 10 and CIFAR 100 datasets](https://www.cs.toronto.edu/~kriz/cifar.html) contains natural images which are much more difficult to classify, including bird, cat, deer... and so on. In this dataset, there are 50000 training pictures along with training labels, and 10000 test pictures with corresponding labels.
-```python
-from Datasets import load_CIFAR as load
-train_data,train_label,test_data,test_label=load.data_generate('cifar-10-batches-py')
-```
-
-
-There are also other datasets, like [Fashion-MNIST](https://www.kaggle.com/datasets/zalando-research/fashionmnist). But for simplicity, we use here only the MNIST and CIFAR-10 datasets.
-
-## Supervised learning
-For supervised learning, we introduce, MLP (BP.ipynb), CNN (Lenet for MNIST and the other for CIFAR10), RNN..... The .ipynb files are shown for simplicity.
-To be updated...
