@@ -7,7 +7,7 @@ Although simple by design, these implementations demonstrate the core components
 
 ---
 
-## ✨ What This Repository Demonstrates
+##  What This Repository Demonstrates
 - End-to-end **image classification pipelines** implemented from scratch  
 - Manual construction of:
   - forward and backward passes  
@@ -22,7 +22,7 @@ These components form the foundation of more advanced deep learning models used 
 
 ---
 
-## 📦 Datasets
+## Datasets
 
 This repository includes loaders for several standard computer vision datasets used in classification tasks:
 
